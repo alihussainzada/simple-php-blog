@@ -4,7 +4,7 @@ Welcome to **KoalaSEC Blog**, a lightweight, purple-themed blog built from the g
 
 ## Project Overview
 
-**PurpleBlog** isn’t just a blog—it’s a showcase of my growing skills in PHP. With a focus on core PHP concepts and hands-on experience, this project covers the essentials:
+**KoalaSEC Blog** isn’t just a blog—it’s a showcase of my growing skills in PHP. With a focus on core PHP concepts and hands-on experience, this project covers the essentials:
 
 - **User Authentication**: Secure login and session management.
 - **CRUD Operations**: Add, update, and delete blog posts with ease.
