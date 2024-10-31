@@ -11,7 +11,7 @@ Welcome to **KoalaSEC Blog**, a lightweight, purple-themed blog built from the g
 - **Categories & Tags**: Organize content intuitively.
 - **Responsive Purple Theme**: Aesthetic and simple.
 
-I developed PurpleBlog as a personal project to apply PHP skills practically, taking the concepts beyond theory to build a functional application. It’s a project I’m proud of, and it’s now a part of my portfolio.
+I developed KoalaSEC Blog as a personal project to apply PHP skills practically, taking the concepts beyond theory to build a functional application. It’s a project I’m proud of, and it’s now a part of my portfolio.
 
 ## Why I Built This
 
