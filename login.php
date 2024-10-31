@@ -19,6 +19,7 @@
             <input type="submit" value="Log In">
         </form>
         <p>Don't have an account? <a href="register.php">Sign Up</a></p>
+        <p>Have you forgotten you Password? <a href="forget_password.php">Reset</a></p>
     </div>
     <?php
           

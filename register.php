@@ -29,7 +29,7 @@
                     $message = "Email already exists. Please choose a different one.";
                 } else {
                     // Prepare the SQL insert statement
-                    $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$hashedPassword')";
+                    $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
 
                     // Execute the query
                     if ($conn->query($sql) === TRUE) {
