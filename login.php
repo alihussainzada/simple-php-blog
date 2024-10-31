@@ -7,22 +7,21 @@
     <link rel="stylesheet" href="static/loginStyles.css"> <!-- Link to your CSS file -->
 </head>
 <body>
-
-    <div class="container">
-        <h2>Login</h2>
-        <form method="POST" action="login.php">
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <button type="submit">Login</button>
+    <?php   $msg = isset($_GET['msg']) ? htmlspecialchars($_GET['msg']) : ''; ?>
+    <div class="login-container">
+        <h2>Log In</h2>
+        <?php if ($msg): ?>
+        <div class="alert" style="color: green; margin-bottom: 10px;"><?php echo $msg; ?></div>
+    <?php endif; ?> 
+        <form action="login.php" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Log In">
         </form>
-        <p class="message">
-            <?php
+        <p>Don't have an account? <a href="register.php">Sign Up</a></p>
+    </div>
+    <?php
+          
                require 'db.php';
                 
                 // Check if form is submitted
@@ -43,9 +42,7 @@
                         exit();   
                 }
             }
-            ?>
-        </p>
-    </div>
 
+        ?>
 </body>
 </html>
