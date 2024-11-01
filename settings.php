@@ -59,7 +59,7 @@ if (isset($_SESSION['is_logged']) === true ){
             <input type="password" id="password" name="password" value="aliali" required>
 
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" value="" required>
+            <input type="email" id="email" name="email" value=" " required>
 
             <label for="created_at">Created At</label>
             <input type="text" id="created_at" name="created_at" value="2024-10-31 22:18:05" readonly>
