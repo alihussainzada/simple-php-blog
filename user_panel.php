@@ -7,12 +7,10 @@
     <link rel="stylesheet" href="static/styles.css">
     <script src="static/fuctions.js"></script>
 </head>
-<?php
-require 'db.php'; 
-             
-$is_logged = $_COOKIE['is_logged'];
-$username = $_COOKIE['username'];
-if ($is_logged == 'true' and !is_null($username)){
+<?php       
+session_start();   
+// $username = $_COOKIE['username'];
+if (isset($_SESSION['is_logged']) === true ){
    
 ?>
 
@@ -26,7 +24,7 @@ if ($is_logged == 'true' and !is_null($username)){
                 <li><a href="#">Write</a></li>
                 <li><a href="#">Posts</a></li>
                 <li><a href="#">Settings</a></li>
-                <li>(<?php echo $_COOKIE['username'] ?>)<a href="#" onclick="deleteAllCookies();redirect('login.php');"> Logout</a></li>
+                <li>(<?php echo $_SESSION['username'] ?>)<a href="#" onclick="deleteAllCookies();redirect('login.php');"> Logout</a></li>
 
             </ul>
         </nav>
