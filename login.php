@@ -22,6 +22,7 @@
         <p>Have you forgotten you Password? <a href="forget_password.php">Reset</a></p>
     </div>
     <?php
+    session_start();
           
                require 'db.php';
                 
@@ -34,11 +35,9 @@
                     $result = $conn->query($sql);                
                     if ($result->num_rows == 1) {
                         $row = $result->fetch_assoc();
-                        // print_r($row);
-                        // die;
-                        setcookie("is_logged", "true", time() + (86400 * 1), "/");
-                        setcookie("username", $row['username'], time() + (86400 * 1), "/");
-                        setcookie("user_id", $row['id'], time() + (86400 * 1), "/");
+                        $_SESSION['is_logged'] = true;
+                        $_SESSION['username'] = $row['username'];
+                        $_SESSION['user_id'] = $row['user_id'];
                         header("Location: user_panel.php");
                         exit();   
                 }
