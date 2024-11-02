@@ -4,20 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Dashboard</title>
-    <link rel="stylesheet" href="static/styles.css">
+    <!-- <link rel="stylesheet" href="static/styles.css"> -->
     <link rel="stylesheet" href="static/settings.css">
     <script src="static/fuctions.js"></script>
 </head>
 <?php       
 session_start();   
 include 'db.php';
-$sql = "SELECT * FROM users WHERE username = '" . $_SESSION['username'] . "'";
-$result = $conn->query($sql);                
-if ($result->num_rows == 1) {
-    $row = $result->fetch_assoc();  
-}
+
 if (isset($_SESSION['is_logged']) === true ){
    
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $username = htmlspecialchars(trim($_POST['username']));
+        $first_name = htmlspecialchars(trim($_POST['first_name']));
+        $last_name = htmlspecialchars(trim($_POST['last_name']));
+        $bio = htmlspecialchars(trim($_POST['bio']));
+        $password = htmlspecialchars(trim($_POST['password']));  // Ensure you hash passwords before storing in production
+
+        if ($password === ""){
+            $sql = "UPDATE users 
+        SET first_name = '$first_name', last_name = '$last_name', bio = '$bio'
+        WHERE id = '{$_SESSION['user_id']}'";
+
+        }else{
+            $sql = "UPDATE users 
+        SET first_name = '$first_name', last_name = '$last_name', bio = '$bio', password = '$password'
+        WHERE id = '{$_SESSION['user_id']}'";
+
+        }
+
+        try {
+            
+            $result = $conn->query($sql);
+            if ($result === true) {
+                $message = "Profile updated successfully!";
+            } else {
+                $message = "Failed to update profile.";
+              
+            }
+        } catch (mysqli_sql_exception $e) {
+            $message = "Error updating profile: " . $e->getMessage();
+           
+        }
+
+    }
+
+    $sql = "SELECT * FROM users WHERE username = '" . $_SESSION['username'] . "'";
+    $result = $conn->query($sql);                
+    if ($result->num_rows == 1) {
+    $row = $result->fetch_assoc();
+
+}
+
 ?>
 
 <body>
@@ -39,33 +77,28 @@ if (isset($_SESSION['is_logged']) === true ){
     <main class="main">
     <div class="form-container">
         <h2>User Profile</h2>
-        <form action="update_profile.php" method="POST">
-            <label for="id">ID</label>
-            <input type="text" id="id" name="id" value="15" readonly>
+        <?php if ($message): ?>
+        <div class="alert" style="color: red; margin-bottom: 10px;"><?php echo $message; ?></div>
+    <?php endif; ?>
+        <form action="" method="POST">
 
             <label for="username">Username</label>
-            <input type="text" id="username" name="username" value="ali" required>
-
-            <label for="first_name">First Name</label>
-            <input type="text" id="first_name" name="first_name" value="">
-
-            <label for="last_name">Last Name</label>
-            <input type="text" id="last_name" name="last_name" value="">
-
-            <label for="bio">Bio</label>
-            <textarea id="bio" name="bio"></textarea>
-
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" value="aliali" required>
+            <input type="text" id="username" name="username" value="<?php echo $row['username']?>" disabled>
 
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" value=" " required>
+            <input type="email" id="email" name="email" value="<?php echo $row['email']?>" disabled>
 
-            <label for="created_at">Created At</label>
-            <input type="text" id="created_at" name="created_at" value="2024-10-31 22:18:05" readonly>
+            <label for="first_name">First Name</label>
+            <input type="text" id="first_name" name="first_name" value="<?php echo $row['first_name']?>">
 
-            <label for="token">Token</label>
-            <input type="text" id="token" name="token" value="">
+            <label for="last_name">Last Name</label>
+            <input type="text" id="last_name" name="last_name" value="<?php echo $row['last_name']?>">
+
+            <label for="bio">Bio</label>
+            <textarea id="bio" name="bio"><?php echo $row['bio']?></textarea>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
 
             <button type="submit">Update Profile</button>
         </form>
