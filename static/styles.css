@@ -1,65 +1,66 @@
-main {
+body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
-}
-
-.form-container {
-    width: 400px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-    text-align: center;
+    padding: 0;
+    background-color: #f0f0f0;
     color: #333;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
+header {
+    background-color: #800080; /* Purple */
+    color: white;
+    padding: 20px;
+    text-align: center;
 }
 
-label {
-    margin-top: 10px;
-    font-weight: bold;
-    color: #666;
+nav ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"],
-textarea {
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+}
+
+article {
+    background-color: white;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+article h2 {
+    color: #800080; /* Purple */
+}
+
+footer {
+    text-align: center;
     padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    background-color: #800080; /* Purple */
+    color: white;
+    position: relative;
+    bottom: 0;
     width: 100%;
-    box-sizing: border-box;
 }
 
-textarea {
-    resize: vertical;
-    height: 80px;
-}
-
-button {
-    margin-top: 15px;
-    padding: 10px;
-    background-color: #6a1b9a;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background-color: #4a148c;
+@media (max-width: 600px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
 }

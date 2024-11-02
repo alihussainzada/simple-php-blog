@@ -9,38 +9,38 @@
 <body>
 
 <?php
-        $message = ''; 
-            require 'db.php';
+    $message = ''; 
+        require 'db.php';
+        
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $username = htmlspecialchars(trim($_POST['username']));
+            $email = htmlspecialchars(trim($_POST['email']));
+            $password = htmlspecialchars(trim($_POST['password']));
+
+            $checkUserName = "SELECT * FROM users WHERE username = '$username'";
+            $checkResult1 = $conn->query($checkUserName);
+            $checkEmail = "SELECT * FROM users WHERE email = '$email'";
+            $checkResult2 = $conn->query($checkEmail);
+
+            if ($checkResult1->num_rows > 0) {
+                $message = "Username already exists. Please choose a different one.";
             
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                $username = htmlspecialchars(trim($_POST['username']));
-                $email = htmlspecialchars(trim($_POST['email']));
-                $password = htmlspecialchars(trim($_POST['password']));
+            }elseif ($checkResult2->num_rows > 0) {
+                $message = "Email already exists. Please choose a different one.";
+            } else {
+                // Prepare the SQL insert statement
+                $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
 
-                $checkUserName = "SELECT * FROM users WHERE username = '$username'";
-                $checkResult1 = $conn->query($checkUserName);
-                $checkEmail = "SELECT * FROM users WHERE email = '$email'";
-                $checkResult2 = $conn->query($checkEmail);
-
-                if ($checkResult1->num_rows > 0) {
-                    $message = "Username already exists. Please choose a different one.";
-                
-                }elseif ($checkResult2->num_rows > 0) {
-                    $message = "Email already exists. Please choose a different one.";
+                // Execute the query
+                if ($conn->query($sql) === TRUE) {
+                    header("Location: login.php?msg= You have registered successfull, please login!");
+                    exit(); // Make sure to exit after a header redirect
                 } else {
-                    // Prepare the SQL insert statement
-                    $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password')";
-
-                    // Execute the query
-                    if ($conn->query($sql) === TRUE) {
-                        header("Location: login.php?msg= You have registered successfull, please login!");
-                        exit(); // Make sure to exit after a header redirect
-                    } else {
-                        // If there was an error with the query, display the error message
-                        echo "Error: " . $sql . "<br>" . $conn->error;
-                    }
+                    // If there was an error with the query, display the error message
+                    echo "Error: " . $sql . "<br>" . $conn->error;
                 }
             }
+        }
     ?>
 <div class="signup-container">
     <h2>Sign Up</h2>
