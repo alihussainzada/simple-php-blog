@@ -11,10 +11,12 @@
         <h1>Your Blog Title</h1>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Categories</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="write_post.php ">Write</a></li>
+                <li><a href="posts.php">Posts</a></li>
+                <li><a href="settings.php">Settings</a></li>
+                <li>(<?php echo $_SESSION['username'] ?>)<a href="#" onclick="deleteAllCookies();redirect('login.php');"> Logout</a></li>
+
             </ul>
         </nav>
     </header>

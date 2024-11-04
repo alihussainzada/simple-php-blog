@@ -37,7 +37,7 @@
                         $row = $result->fetch_assoc();
                         $_SESSION['is_logged'] = true;
                         $_SESSION['username'] = $row['username'];
-                        $_SESSION['user_id'] = $row['user_id'];
+                        $_SESSION['id'] = $row['id'];
                         header("Location: user_panel.php");
                         exit();   
                 }
