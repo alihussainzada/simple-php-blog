@@ -31,13 +31,13 @@ Building **KoalaSEC Blog** allowed me to solidify core concepts in PHP developme
 
 - ## ScreenShots
 
-![Sign Up and Sign In Interface](path/to/your/signup-signin-image.jpg)  
+![Sign Up and Sign In Interface](https://raw.githubusercontent.com/alihussainzada/simple-php-blog/refs/heads/main/images/signUp.png)  
 *Example: User registration and login interfaces.*
 
-![User Settings Page](path/to/your/user-settings-image.jpg)  
+![User Settings Page](https://raw.githubusercontent.com/alihussainzada/simple-php-blog/refs/heads/main/images/settings.png)  
 *Example: User settings page where users can edit profile information.*
 
-- ![Create Post Page](path/to/your/create-post-image.jpg)  
+- ![Create Post Page](https://raw.githubusercontent.com/alihussainzada/simple-php-blog/refs/heads/main/images/createPost.png)  
 *Example: Page where users can create and categorize blog posts.*
 
 ![Admin Panel Overview](path/to/your/admin-panel-image.jpg)  
