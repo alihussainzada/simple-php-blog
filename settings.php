@@ -15,21 +15,23 @@ include 'db.php';
 if (isset($_SESSION['is_logged']) === true ){
    
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $username = htmlspecialchars(trim($_POST['username']));
-        $first_name = htmlspecialchars(trim($_POST['first_name']));
-        $last_name = htmlspecialchars(trim($_POST['last_name']));
-        $bio = htmlspecialchars(trim($_POST['bio']));
-        $password = htmlspecialchars(trim($_POST['password']));  // Ensure you hash passwords before storing in production
+        // $username = htmlspecialchars(trim($_POST['username']));
+        $first_name = $_POST['first_name'];
+        $last_name = $_POST['last_name'];
+        $bio = $_POST['bio'];
+        $password = $_POST['password']; 
+        print($_SESSION['user_id']) ;
+
 
         if ($password === ""){
             $sql = "UPDATE users 
         SET first_name = '$first_name', last_name = '$last_name', bio = '$bio'
-        WHERE id = '{$_SESSION['user_id']}'";
+        WHERE username = '{$_SESSION['username']}'";
 
         }else{
             $sql = "UPDATE users 
         SET first_name = '$first_name', last_name = '$last_name', bio = '$bio', password = '$password'
-        WHERE id = '{$_SESSION['user_id']}'";
+        WHERE username = '{$_SESSION['username']}'";
 
         }
 
@@ -63,10 +65,9 @@ if (isset($_SESSION['is_logged']) === true ){
         <h1>Your Dashboard</h1>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Panel</a></li>
-                <li><a href="#">Write</a></li>
-                <li><a href="#">Posts</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="write_post.php ">Write</a></li>
+                <li><a href="posts.php">Posts</a></li>
                 <li><a href="settings.php">Settings</a></li>
                 <li>(<?php echo $_SESSION['username'] ?>)<a href="#" onclick="deleteAllCookies();redirect('login.php');"> Logout</a></li>
 
