@@ -24,7 +24,7 @@ $message = '';
         $catagory_id = $_POST['category']; 
 
         $sql = "INSERT INTO posts (title, content, user_id, category_id) VALUES ('$title', '$content', '$user_id','$catagory_id')";
-        $result = $conn->query($sql); 
+        // $result = $conn->query($sql); 
         if ($conn->query($sql) === TRUE) {
             $message = "Your post is created.";
         } else {
