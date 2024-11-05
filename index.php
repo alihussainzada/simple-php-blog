@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Blog Title</title>
-    <link rel="stylesheet" href="static/styles.css">
+    <title>KoalaSEC Blog</title>
+    <link rel="stylesheet" href="static/indexStyle.css">
 </head>
 <body>
-    <header>
-        <h1>Your Blog Title</h1>
+    <header class="headerClass">
+        
         <nav>
             <ul>
                 <li><a href="index.php">Home</a></li>
@@ -21,21 +21,28 @@
         </nav>
     </header>
 
-    <main>
-        <article>
-            <h2>Blog Post Title</h2>
-            <p>Posted on <em>October 31, 2024</em> by <strong>Author Name</strong></p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a href="#">Read more...</a>
-        </article>
-
-        <article>
-            <h2>Another Blog Post</h2>
-            <p>Posted on <em>October 30, 2024</em> by <strong>Author Name</strong></p>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <a href="#">Read more...</a>
-        </article>
-    </main>
+    <div class="container">
+        <header>
+        <h1>Welcome to KoalaSEC Weblog  </h1>
+            <form class="search-bar" action="search.php" method="GET">
+                <input type="text" name="query" placeholder="Search blog posts...">
+                <button type="submit">Search</button>
+            </form>
+        </header>
+        <main>
+            <div class="post">
+                <h2 class="post-title"><a href="view_post.php?id=1">Post Title 1</a></h2>
+                <p class="post-excerpt">This is a brief introduction to the post content...</p>
+                <a href="view_post.php?id=1" class="read-more">Read more</a>
+            </div>
+            <div class="post">
+                <h2 class="post-title"><a href="view_post.php?id=2">Post Title 2</a></h2>
+                <p class="post-excerpt">This is a brief introduction to the post content...</p>
+                <a href="view_post.php?id=2" class="read-more">Read more</a>
+            </div>
+            <!-- Repeat .post for each blog post -->
+        </main>
+    </div>
 
     <footer>
         <p>&copy; 2024 Your Blog Title. All rights reserved.</p>

@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #4A4A8C;
+}
+
+.post-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.post-item {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9ff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.post-title {
+    font-size: 18px;
+    color: #4A4A8C;
+}
+
+.post-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.button {
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.edit {
+    background-color: #4CAF50;
+}
+
+.edit:hover {
+    background-color: #45a049;
+}
+
+.view {
+    background-color: #3498db;
+}
+
+.view:hover {
+    background-color: #2980b9;
+}
+
+.delete {
+    background-color: #e74c3c;
+}
+
+.delete:hover {
+    background-color: #c0392b;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #800080; /* Purple */
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
