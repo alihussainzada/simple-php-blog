@@ -35,7 +35,6 @@ $message = '';
 ?>
 <body>
 <header>
-        <h1>Your Dashboard</h1>
         <nav>
             <ul>
                 <li><a href="index.php">Home</a></li>
@@ -76,5 +75,8 @@ $message = '';
         </form>
     </div>
     </main>
+    <footer>
+        <p>&copy; 2024 Your Blog Title. All rights reserved.</p>
+    </footer>
 </body>
 </html>

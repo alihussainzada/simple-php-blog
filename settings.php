@@ -62,7 +62,6 @@ if (isset($_SESSION['is_logged']) === true ){
 
 <body>
     <header>
-        <h1>Your Dashboard</h1>
         <nav>
             <ul>
                 <li><a href="index.php">Home</a></li>
