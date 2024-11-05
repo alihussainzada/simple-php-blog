@@ -10,6 +10,7 @@
 <?php       
 session_start();   
 include 'db.php';
+if (isset($_SESSION['is_logged']) === true ){
 $message = ''; 
 
     $sql = "SELECT * FROM categories";
@@ -32,6 +33,7 @@ $message = '';
         }
     }
 
+}
 ?>
 <body>
 <header>

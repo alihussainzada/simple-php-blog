@@ -6,6 +6,34 @@
     <title>KoalaSEC Blog</title>
     <link rel="stylesheet" href="static/indexStyle.css">
 </head>
+<?php     
+include 'db.php';  
+
+function authoIdToName($conn,$id){
+    $sql = "SELECT * FROM users WHERE id = " . $id;
+    $result = $conn->query($sql); 
+    if ($result && $result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        return $row['username'];
+    } else {
+        echo "No user found with ID " . $id;
+    }
+
+}
+
+
+
+
+session_start();   
+$message = ''; 
+
+    $sql = "SELECT * FROM posts";
+    $result = $conn->query($sql);                
+    $rows = $result->fetch_all();
+
+   
+
+?>
 <body>
     <header class="headerClass">
         
@@ -14,8 +42,6 @@
                 <li><a href="index.php">Home</a></li>
                 <li><a href="write_post.php ">Write</a></li>
                 <li><a href="posts.php">Posts</a></li>
-                <li><a href="settings.php">Settings</a></li>
-                <li>(<?php echo $_SESSION['username'] ?>)<a href="#" onclick="deleteAllCookies();redirect('login.php');"> Logout</a></li>
 
             </ul>
         </nav>
@@ -30,16 +56,17 @@
             </form>
         </header>
         <main>
+        <?php foreach ($rows as $row) { 
+             $content = $row[3];
+             $limit = 50;
+             $trimmed_content = strlen($content) > $limit ? substr($content, 0, $limit) . "..." : $content;?>
+            
             <div class="post">
-                <h2 class="post-title"><a href="view_post.php?id=1">Post Title 1</a></h2>
-                <p class="post-excerpt">This is a brief introduction to the post content...</p>
+                <h2 class="post-title"><i><?php echo htmlspecialchars($row[2]); ?></i> On <?php echo htmlspecialchars($row[4]) ?> By <?php echo authoIdToName($conn, $row[1]);?></h2>
+                <p class="post-excerpt"><?php echo htmlspecialchars($trimmed_content); ?></p>
                 <a href="view_post.php?id=1" class="read-more">Read more</a>
             </div>
-            <div class="post">
-                <h2 class="post-title"><a href="view_post.php?id=2">Post Title 2</a></h2>
-                <p class="post-excerpt">This is a brief introduction to the post content...</p>
-                <a href="view_post.php?id=2" class="read-more">Read more</a>
-            </div>
+            <?php } ?>
             <!-- Repeat .post for each blog post -->
         </main>
     </div>
