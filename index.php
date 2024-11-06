@@ -64,7 +64,7 @@ $message = '';
             <div class="post">
                 <h2 class="post-title"><i><?php echo htmlspecialchars($row[2]); ?></i> On <?php echo htmlspecialchars($row[4]) ?> By <?php echo authoIdToName($conn, $row[1]);?></h2>
                 <p class="post-excerpt"><?php echo htmlspecialchars($trimmed_content); ?></p>
-                <a href="view_post.php?id=1" class="read-more">Read more</a>
+                <a href="view_post.php?id=<?php echo $row[0]?>" class="read-more">Read more</a>
             </div>
             <?php } ?>
             <!-- Repeat .post for each blog post -->

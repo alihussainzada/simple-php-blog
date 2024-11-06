@@ -33,7 +33,7 @@ $message = '';
         }
     }
 
-}
+
 ?>
 <body>
 <header>
@@ -80,5 +80,15 @@ $message = '';
     <footer>
         <p>&copy; 2024 Your Blog Title. All rights reserved.</p>
     </footer>
+    <?php }else{?>
+        <script>
+    setTimeout(function() {
+        window.location.href = 'login.php'; 
+    }, 1000);
+    </script>
+
+        <?php
+
+    }?>
 </body>
 </html>

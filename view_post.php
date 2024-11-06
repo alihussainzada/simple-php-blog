@@ -6,13 +6,24 @@
     <title>Blog Post</title>
     <link rel="stylesheet" href="static/view_post.css">
 </head>
+<?php     
+include 'db.php';  
+if (isset($_GET['id'])) {
+    $id = (int) $_GET['id'];
+$sql = "SELECT * FROM posts  WHERE id = $id";
+$result = $conn->query($sql);                
+$row = $result->fetch_assoc();
+
+}
+?>
+
+
 <body>
     <div class="container">
         <div class="post">
-            <h1 class="post-title">Post Title Here</h1>
+            <h1 class="post-title"><?php echo $row['title'];?></h1>
             <p class="post-content">
-                This is where the full content of the blog post will be displayed. You can add multiple paragraphs, images, or any other content relevant to your blog post. Make sure it is engaging and informative for your readers.
-            </p>
+                <?php echo $row['content'];?>
         </div>
     </div>
 </body>

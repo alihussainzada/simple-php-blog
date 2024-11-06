@@ -18,6 +18,14 @@ $message = '';
     $rows = $result->fetch_all();
 
 
+    if (isset($_GET['id'])) {
+        $id = (int) $_GET['id'];
+    $sql = "DELETE FROM posts WHERE id = $id";
+    $result = $conn->query($sql);
+    header("Location: posts.php");
+        exit;
+    }
+   
 ?>
 <body>
     <header>
@@ -41,7 +49,7 @@ $message = '';
             <div class="post-actions">
                 <a href="edit_post.php?id=<?php echo $row[0]; ?>" class="button edit">Edit</a>
                 <a href="view_post.php?id=<?php echo $row[0]; ?>" class="button view">View</a>
-                <a href="delete_post.php?id=<?php echo $row[0]; ?>" class="button delete">Delete</a>
+                <a href="posts.php?id=<?php echo $row[0]; ?>" class="button delete">Delete</a>
             </div>
         </div>
     <?php } ?>
