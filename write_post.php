@@ -6,6 +6,7 @@
     <title>Create Post</title>
     <link rel="stylesheet" href="static/create_post.css">
     <link rel="stylesheet" href="static/styles.css">
+    <script src="static/fuctions.js"></script>
 </head>
 <?php       
 session_start();   

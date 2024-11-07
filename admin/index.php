@@ -32,11 +32,9 @@
                 <h2>Manage Users</h2>
                 <table>
                     <thead>
+                      
                         <tr>
-                            <th>iframe</th>                   
-                        </tr>
-                        <tr>
-                            <td id="contentArea">iframe</td>                   
+                            <td id="contentArea"></td>                   
                         </tr>
                     </thead>
                     <tbody>

@@ -6,10 +6,12 @@
     <title>User Posts</title>
     <link rel="stylesheet" href="static/postsStyle.css">
     <link rel="stylesheet" href="static/styles.css">
+    <script src="static/fuctions.js"></script>
 
 </head>
 <?php       
-session_start();   
+session_start();  
+if (isset($_SESSION['is_logged']) === true){ 
 include 'db.php';
 $message = ''; 
 
@@ -55,6 +57,18 @@ $message = '';
     <?php } ?>
 </div>
     </div>
+    <?php
+    }else{?>
+        <script>
+    setTimeout(function() {
+        window.location.href = 'login.php'; 
+    }, 1000);
+    </script>
+
+        <?php
+
+    }
+    ?>
     <footer>
         <p>&copy; 2024 Your Blog Title. All rights reserved.</p>
     </footer>
