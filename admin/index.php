@@ -30,11 +30,11 @@
             <!-- Manage Users Section -->
             <section id="manage-users" class="section">
                 <h2>Manage Users</h2>
-                <table>
+                <table class="tableClass">
                     <thead>
                       
                         <tr>
-                            <td id="contentArea"></td>                   
+                            <td id="contentArea" class=".tdClass"></td>                   
                         </tr>
                     </thead>
                     <tbody>

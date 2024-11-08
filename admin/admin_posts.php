@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Posts</title>
     <link rel="stylesheet" href="../static/postsStyle.css">
-    <!-- <link rel="stylesheet" href="../static/styles.css"> -->
     <script src="../static/fuctions.js"></script>
 
     </head>
@@ -24,7 +23,7 @@ $message = '';
         $id = (int) $_GET['id'];
     $sql = "DELETE FROM posts WHERE id = $id";
     $result = $conn->query($sql);
-    header("Location: posts.php");
+    header("Location: index.php");
         exit;
     }
    
@@ -38,7 +37,7 @@ $message = '';
         <div class="post-item">
             <h2 class="post-title"><?php echo htmlspecialchars($row[2]); ?></h2>
             <div class="post-actions">
-                <a href="admin/admin_posts.php?id=<?php echo $row[0]; ?>" class="button delete">Delete</a>
+                <a href="admin_posts.php?id=<?php echo $row[0]; ?>" class="button delete">Delete</a>
             </div>
         </div>
     <?php } ?>

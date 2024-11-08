@@ -84,19 +84,19 @@ header p {
     color: #333;
 }
 
-table {
+.tableClass {
     width: 100%;
     border-collapse: collapse;
     margin-top: 15px;
 }
 
-table th, table td {
+.tableClass .thClass, .tableClass .tdClass {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
 }
 
-table th {
+.tableClass .thClass {
     background-color: #800080;
     color: white;
 }
