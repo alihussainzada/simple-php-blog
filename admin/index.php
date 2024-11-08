@@ -14,7 +14,7 @@
             <ul>
             <li><button onclick="loadContent('admin_posts.php')">View Posts</button></li>
                 <li><button onclick="loadContent('admin_users.php')">Manage Users</button></li>
-                <li><a href="#backup-data">Backup Data</a></li>
+                <li><a href="backups.php">Backup Data</a></li>
             </ul>
         </nav>
 
@@ -24,8 +24,6 @@
                 <h1>Welcome, Admin</h1>
                 <p>Manage posts, users, and backups from this dashboard.</p>
             </header>
-
-            <!-- View Posts Section -->
             
             <!-- Manage Users Section -->
             <section id="manage-users" class="section">
